@@ -133,6 +133,12 @@ inquirer.prompt([{
                                 var preview = trackData.preview_url;
                                 var album = trackData.album.name;
 
+                                //creating a varialble that will send data to the log.txt file
+
+                                var content = "============================================\n" +
+                                             "Artist: " + artists + "\n~~~~~~~~~~~~~~~~~~~~~"+ "\nSong Title: " + song + 
+                                             "\n~~~~~~~~~~~~~~~~~~~~~" + "\nAlbum: " + album + "\n~~~~~~~~~~~~~~~~~~~~~" + 
+                                             "\nSong Preview: " + preview + "\n============================================\n";
                                 //console log out the information found on the track provided by user
 
                                 console.log("============================================\n");
@@ -146,7 +152,7 @@ inquirer.prompt([{
                                 console.log("============================================\n");
 
                                 // adding the log.txt file
-                                fs.appendFile("log.txt", '\n' + trackData + '\n', function (err){
+                                fs.appendFile("log.txt", '\n' + content + '\n', function (err){
                                     if (err) {
                                         console.log(err);
                                     }
@@ -180,6 +186,15 @@ inquirer.prompt([{
 
                         if (!error && response.statusCode === 200) {
 
+                            var content = "======================================" + "\nTitle: " + JSON.parse(body).Title +
+                                          "\n~~~~~~~~~~~~~~~~~~~~~" + "\nRelease Date: " + JSON.parse(body).Year +
+                                          "\n~~~~~~~~~~~~~~~~~~~~~" + "\nIMBD rating is: " + JSON.parse(body).imdbRating + 
+                                          "\n~~~~~~~~~~~~~~~~~~~~~" + "\nProduced in (country): " + JSON.parse(body).Country +
+                                          "\n~~~~~~~~~~~~~~~~~~~~~" + "\nMain language: " + JSON.parse(body).Language +
+                                          "\n~~~~~~~~~~~~~~~~~~~~~" + "\nPlot: " + JSON.parse(body).Plot +
+                                          "\n~~~~~~~~~~~~~~~~~~~~~" + "\nActor's include: " + JSON.parse(body).Actors +
+                                          "\n======================================";
+
                             // Parse the body of the site and recover the info needed
 
                             console.log("======================================\n");
@@ -197,7 +212,13 @@ inquirer.prompt([{
                             console.log("~~~~~~~~~~~~~~~~~~~~~");
                             console.log("Actor's include: " + JSON.parse(body).Actors + '\n');
                             console.log("======================================");
-                            
+
+                            // adding log.txt for omdb
+                            fs.appendFile("log.txt", '\n' + content + '\n', function(err){
+                                if (err) {
+                                    console.log(err);
+                                }
+                            })
                         }
                     });
                 });
@@ -245,6 +266,13 @@ inquirer.prompt([{
                                     var preview = trackData.preview_url;
                                     var album = trackData.album.name;
 
+                                    //creating a varialble that will send data to the log.txt file
+
+                                    var content = "============================================\n" +
+                                             "Artist: " + artists + "\n~~~~~~~~~~~~~~~~~~~~~"+ "\nSong Title: " + song + 
+                                             "\n~~~~~~~~~~~~~~~~~~~~~" + "\nAlbum: " + album + "\n~~~~~~~~~~~~~~~~~~~~~" + 
+                                             "\nSong Preview: " + preview + "\n============================================\n";
+
                                     //console log out the information found on the track provided by user
 
 	                                console.log("============================================\n");
@@ -256,6 +284,13 @@ inquirer.prompt([{
 	                                console.log("~~~~~~~~~~~~~~~~~~~~~");
 	                                console.log("Song Preview: " + preview + '\n');
 	                                console.log("============================================\n");
+
+                                     // adding the log.txt file
+                                    fs.appendFile("log.txt", '\n' + content + '\n', function (err){
+                                            if (err) {
+                                                console.log(err);
+                                    }
+                                })
                                 }
                             }
                         });
