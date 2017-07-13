@@ -16,12 +16,8 @@ var moviePrompt = inquirer.createPromptModule();
 //set variable to grab hidden Twitter keys
 
 var client = new Twitter(keys.twitterKeys);
+var spotify = new Spotify(keys.spotifyKeys);
 
-//set the spotify client to have the access codes
-var spotify = new Spotify({
-	id: '38acb638347a42ca9b6411c2fc2e20ba',
-	secret: 'dafd8d60b72c4ca690d5fc3b3fb8222a'
-})
 //Use inquirer for selection of commands
 
 inquirer.prompt([{
