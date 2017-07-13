@@ -67,12 +67,18 @@ inquirer.prompt([{
                                     var time = response[i].created_at;
                                     var tweets = response[i].text;
                                     var user = params.screen_name;
+
+                                    var content = "============================================ \n" + '\n' + 
+                                        "----------------" + time + "--------------------------" + '\n' + 
+                                        "@" + user + " tweeted:\n" + '\n' + tweets + '\n' + 
+                                        "============================================" + '\n';
+
                                     console.log("============================================ \n" + '\n' + 
                                     	"----------------" + time + "--------------------------" + '\n' + 
                                     	"@" + user + " tweeted:\n" + '\n' + tweets + '\n' + 
                                     	"============================================" + '\n');
                                     // adding the log.txt file for twitter
-                                    fs.appendFile("log.tx", '\n' + response[i].text + '\n', function(err){
+                                    fs.appendFile("log.tx", '\n' + content + '\n', function(err){
                                     	if (err) {
                                     		console.log(err);
                                     	}
