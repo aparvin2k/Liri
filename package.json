@@ -1,0 +1,27 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "Liri is a language bot that works with node",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aparvin2k/liri.git"
+  },
+  "author": "Anthony Parvin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aparvin2k/liri/issues"
+  },
+  "homepage": "https://github.com/aparvin2k/liri#readme",
+  "dependencies": {
+    "inquirer": "^3.2.0",
+    "node-spotify-api": "^1.0.5",
+    "omdb": "^0.8.0",
+    "request": "^2.81.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.7.1"
+  }
+}
